@@ -1,4 +1,4 @@
 #!/bin/sh
 # Executing the git go program
 
-exec go run ./git-go.go
+exec go run ./cmd/git-go.go
