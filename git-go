@@ -1,4 +1,11 @@
 #!/bin/sh
 # Executing the git go program
 
-exec go run ./cmd/git-go.go
+set -e
+
+tmpFile=$(mktemp)
+
+(cd $(dirname "$0") &&
+	go build -buildvcs="false" -o "$tmpFile" ./cmd/git-go.go)
+
+exec "$tmpFile" "$@"
